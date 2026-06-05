@@ -18,12 +18,16 @@ try:
     user.set_password(password)
     user.is_superuser = True
     user.is_staff = True
+    user.portal = "both"
+    user.role = "system_admin"
     user.save()
     print(f"Superuser '{username}' updated successfully.")
 except User.DoesNotExist:
     user = User.objects.create_superuser(
         username=username,
         email=email,
-        password=password
+        password=password,
+        portal="both",
+        role="system_admin"
     )
     print(f"Superuser '{username}' created successfully.")
