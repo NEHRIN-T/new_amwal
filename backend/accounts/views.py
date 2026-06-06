@@ -10,6 +10,7 @@ User = get_user_model()
 
 
 class LoginView(APIView):
+    authentication_classes = []
     permission_classes = []
 
     def post(self, request):
